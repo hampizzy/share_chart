@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>ShareChart</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>ShareChart | <%= @title %></title>
+    <%= render 'layouts/stylesheets' %>
+    <%= javascript_include_tag :defaults %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <header class="container round">
+      <div class="title">
+        <h1><%= @title %></h1>
+      </div>
+      <nav>
+        <ul>
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Chart", chart_path %></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="container round">
+      <%= yield %>
+    </section>
+  </body>
 </html>

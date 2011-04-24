@@ -1,0 +1,47 @@
+body {
+  background: #000033;
+}
+
+.container {
+  background: #ffffff;
+  margin: 10px auto;
+}
+
+header {
+  padding: 10px; 
+}
+
+div.title {
+  float: left;
+}
+
+section {
+  padding: 10px;
+}
+
+section.chart {
+  background: #000000;
+  color: #ffffff;
+  height: 500px;
+}
+
+nav {
+  float: right;
+}
+
+nav ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 4px;
+  font-size: 150%;
+}
+
+nav ul li a {
+  text-decoration: none;
+}
+
+.round {
+  -moz-border-radius:    8px;
+  -webkit-border-radius: 8px;
+  border-radius:         8px;
+}
