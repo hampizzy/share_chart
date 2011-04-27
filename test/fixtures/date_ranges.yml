@@ -1,0 +1,21 @@
+# == Schema Information
+# Schema version: 20110426104908
+#
+# Table name: date_ranges
+#
+#  id         :integer         not null, primary key
+#  start_date :datetime
+#  end_date   :datetime
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  start_date: 2011-04-26 19:44:58
+  end_date: 2011-04-26 19:44:58
+
+two:
+  start_date: 2011-04-26 19:44:58
+  end_date: 2011-04-26 19:44:58

@@ -1,0 +1,21 @@
+<%= form_for(@company) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :abbreviation %><br />
+    <%= f.text_field :abbreviation %>
+  </div>
+  <div class="field">
+    <%= f.label :industry %><br />
+    <%= f.text_field :industry %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Add" %>
+  </div>
+<% end %>

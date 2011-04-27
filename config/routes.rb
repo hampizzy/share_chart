@@ -1,6 +1,12 @@
 ShareChart::Application.routes.draw do
+
   root              :to => 'pages#home'
   match '/chart',   :to => 'pages#chart'
+  match '/load',    :to => 'records#parse_records'
+  
+  resources :companies
+  resources :records
+  resources :date_ranges
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
