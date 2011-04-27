@@ -1,0 +1,19 @@
+<%= link_to "Add new company", new_company_path, :class => "button round" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Abbrev</th>
+    <th>Industry</th>
+    <th>Description</th>
+  </tr>
+  
+  <% @companies.each do |company| %>
+    <tr>
+      <td><%= link_to company.name, company %></td>
+      <td><%= company.abbreviation %></td>
+      <td><%= company.industry %></td>
+      <td><%= company.description %></td>
+    </tr>
+  <% end %>
+</table>

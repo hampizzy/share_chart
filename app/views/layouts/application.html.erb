@@ -13,12 +13,16 @@
       </div>
       <nav>
         <ul>
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Chart", chart_path %></li>
+          <li><%= link_to "Home", root_path, :class => "button round" %></li>
+          <li><%= link_to "Chart", chart_path, :class => "button round" %></li>
+          <li><%= link_to "Companies", companies_path, :class => "button round" %></li>
         </ul>
       </nav>
     </header>
     <section class="container round">
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
       <%= yield %>
     </section>
   </body>

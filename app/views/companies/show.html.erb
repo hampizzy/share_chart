@@ -1,0 +1,65 @@
+<% session[:company_id] = @company.id %>
+<section class="record_form round">
+  <h2>Add single record</h2>
+  <%= form_for(@new_record) do |f| %>
+    <ul class="form_list">
+      <li><%= f.label :time %><br />
+          <%= f.datetime_select :time %></li>
+      <li>
+        <ul>
+          <li class="number_field"><%= f.label :open %><br />
+              <%= f.number_field :open, :size => 4 %></li>
+          <li class="number_field"><%= f.label :high %><br />
+              <%= f.number_field :high, :size => 4 %></li>
+          <li class="number_field"><%= f.label :low %><br />
+              <%= f.number_field :low, :size => 4 %></li>
+          <li class="number_field"><%= f.label :close %><br />
+              <%= f.number_field :close, :size => 4 %></li>
+          <li class="number_field"><%= f.label :volume %><br />
+              <%= f.number_field :volume, :size => 8 %></li>
+        </ul>
+      </li>
+    </ul>
+    <div class="actions">
+      <%= f.submit "Add" %>
+    </div>
+  <% end %>
+</section>
+<section class="record_form round">
+  <h2>Download records</h2>
+  <%= form_for(@date_range) do |f| %>
+    <ul class="form_list">
+      <li><%= f.label "Start date" %><br />
+          <%= f.date_select :start_date %></li>
+      <li><%= f.label "End date" %><br />
+          <%= f.date_select :end_date %></li>
+    </ul>
+    <div class="actions">
+      <%= f.submit "Download" %>
+    </div>
+  <% end %>
+</section>
+<section>
+  <h2>Historical Data from Yahoo Finance</h2>
+  <table class="records" summary="Company records">
+    <tr>
+      <th>Time</th>
+      <th>Open</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Close</th>
+      <th>Volume</th>
+    </tr>
+    <% @records.each do |record| %>
+      <tr>
+        <td><%= record.time %></td>
+        <td><%= record.open %></td>
+        <td><%= record.high %></td>
+        <td><%= record.low %></td>
+        <td><%= record.close %></td>
+        <td><%= record.volume %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= will_paginate @records %>
+</section>

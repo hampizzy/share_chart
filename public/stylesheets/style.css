@@ -1,5 +1,5 @@
 body {
-  background: #000033;
+  background: #a9a9f5;
 }
 
 .container {
@@ -15,8 +15,43 @@ div.title {
   float: left;
 }
 
+div.field {
+  font-size: 130%;
+  margin-bottom: 10px;
+}
+
+div.actions {
+  font-size: 150%;
+  margin-bottom: 10px;
+}
+
+ul.form_list {
+  list-style-type: none;
+}
+
+.number_field {
+  list-style-type: none;
+  display: inline-block;
+}
+
+a.button {
+  float: left;
+  color: #000000;
+  text-decoration: none;
+  background: #be81f7;
+  font-size: 140%;
+  margin: 1px;
+  padding: 5px 10px;
+}
+
 section {
   padding: 10px;
+}
+
+.record_form {
+  background: #be81f7;
+  float: right;
+  margin: 10px
 }
 
 section.chart {
@@ -29,19 +64,19 @@ nav {
   float: right;
 }
 
+
 nav ul li {
   list-style-type: none;
   display: inline-block;
-  padding: 4px;
-  font-size: 150%;
 }
 
-nav ul li a {
-  text-decoration: none;
-}
-
-.round {
+.round {cc
   -moz-border-radius:    8px;
   -webkit-border-radius: 8px;
   border-radius:         8px;
+}
+
+.chart {
+  height: 495px;
+  width: 930px;
 }
