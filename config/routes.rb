@@ -1,8 +1,8 @@
 ShareChart::Application.routes.draw do
 
-  root              :to => 'pages#home'
-  match '/chart',   :to => 'pages#chart'
-  match '/load',    :to => 'records#parse_records'
+  root                  :to => 'pages#home'
+  match '/chart',       :to => 'pages#chart'
+  match '/post_chart',  :to => 'pages#post_chart'
   
   resources :companies
   resources :records

@@ -1,0 +1,16 @@
+<head>
+  <%= javascript_include_tag 'chart.js' %>
+</head>
+<body onload="loadChart()">
+  <form action='https://chart.googleapis.com/chart' method='POST' id='chart_form'
+            onsubmit="this.action = 'https://chart.googleapis.com/chart?chid=' + (new Date()).getMilliseconds(); return true;">
+    <input type='hidden' name='cht' value='lc'/>
+    <input type='hidden' name='chtt' value='Candlestick | chart'/>
+    <input type='hidden' name='chs' value='700x400'/>
+    <input type='hidden' name='chxt' value='x,x,x,y'/>
+    <input type='hidden' name='chxl' value='0:|9|12|13|14|15|18|19|1:||||Mar||||2:||||2010|||'/>
+    <input type='hidden' name='chm' value='F,,0,-1,20'/>
+    <input type='hidden' name='chd' value='t0:-1,20,5,10,7,12,-1|-1,30,25,45,47,24,-1|-1,40,40,30,27,39,-1|-1,50,55,63,59,80,-1'/>
+    <input type='submit'/>
+  </form>
+</body>

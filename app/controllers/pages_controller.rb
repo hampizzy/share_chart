@@ -6,5 +6,9 @@ class PagesController < ApplicationController
   def chart
     @title = "Chart"
   end
+  
+  def post_chart
+    render :layout => false
+  end
 
 end
