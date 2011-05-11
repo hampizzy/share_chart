@@ -1,7 +1,14 @@
-<section class="chart round">
-  <img src="/post_chart" alt="" width="100%" height="100%"/>
-</section>
-<br />
-<section class="chart round">
-  <iframe src="/post_chart" height="100%" width="100%"></iframe>
-</section>
+<head>
+  <%= javascript_include_tag 'amcharts/javascript/amcharts.js' %>
+  <%= javascript_include_tag 'amcharts/javascript/raphael.js' %>      
+  <%= javascript_include_tag 'candle_chart.js' %>
+</head>
+
+<body>
+	<div id="chartdiv" style="width:900px; height:600px;"></div>
+	<div style="width:900px;">
+    <input type="radio" checked="true" name="group" id="rb1" onclick="setType()"> candlestick
+		<input type="radio" name="group" id="rb2" onclick="setType()"> ohlc
+		<div style="float:right"><input onChange="changeZoomDates()" style="width:100px; text-align:center" type="text" id="startDate"> - <input onChange="changeZoomDates()" style="width:100px; text-align:center" type="text" id="endDate">
+	</div>
+</body>
