@@ -29,13 +29,13 @@ class DateRangesController < ApplicationController
     lines.each do |line|
       atts = line.split(",")
       Record.create(:time => atts[0],
-                             :open => atts[1],
-                             :high => atts[2],
-                             :low => atts[3],
-                             :close => atts[4],
-                             :volume => atts[5],
-                             :adjClose => atts[6],
-                             :company_id => company.id)
+                    :open => atts[1],
+                    :high => atts[2],
+                    :low => atts[3],
+                    :close => atts[4],
+                    :volume => atts[5],
+                    :adjClose => atts[6],
+                    :company_id => company.id)
     end
   end
 end

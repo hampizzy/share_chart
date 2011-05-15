@@ -1,14 +1,11 @@
 class PagesController < ApplicationController
   def home
-    @title = "Home"
+    @title = "Shart"
   end
 
   def chart
-    @title = "Chart"
+    @companies = Company.all(:order => :name)
+    @startCompany = Company.first
+    @title = "#{@startCompany.name} Shart"
   end
-  
-  def post_chart
-    render :layout => false
-  end
-
 end

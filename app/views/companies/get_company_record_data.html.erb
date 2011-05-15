@@ -1,0 +1,3 @@
+<% @records.each do |record| %>
+  <%= "#{record.time.year}-#{record.time.month}-#{record.time.day},#{record.open},#{record.high},#{record.low},#{record.close}" %>
+<% end %>

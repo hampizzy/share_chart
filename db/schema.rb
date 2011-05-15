@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110426104908) do
+ActiveRecord::Schema.define(:version => 20110513080243) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20110426104908) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "abbreviation"
+    t.boolean  "indexed",      :default => false
   end
 
   create_table "date_ranges", :force => true do |t|

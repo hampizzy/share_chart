@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ShareChart | <%= @title %></title>
+    <title id="title">Shart | <%= @title %></title>
     <%= render 'layouts/stylesheets' %>
-    <%= javascript_include_tag :defaults %>
+    <%= render 'layouts/javascripts' %>
     <%= csrf_meta_tag %>
   </head>
   <body>
     <header class="container round">
       <div class="title">
-        <h1><%= @title %></h1>
+        <h1 id="heading"><%= @title %></h1>
       </div>
       <nav>
         <ul>

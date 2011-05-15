@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20110425010839
+# Schema version: 20110513080243
 #
 # Table name: companies
 #
@@ -10,10 +10,11 @@
 #  created_at   :datetime
 #  updated_at   :datetime
 #  abbreviation :string(255)
+#  indexed      :boolean
 #
 
 class Company < ActiveRecord::Base
-  attr_accessible :name, :description, :industry, :abbreviation
+  attr_accessible :name, :description, :industry, :abbreviation, :indexed
 
   has_many :records
   

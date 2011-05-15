@@ -1,14 +1,19 @@
-<head>
-  <%= javascript_include_tag 'amcharts/javascript/amcharts.js' %>
-  <%= javascript_include_tag 'amcharts/javascript/raphael.js' %>      
-  <%= javascript_include_tag 'candle_chart.js' %>
-</head>
-
-<body>
-	<div id="chartdiv" style="width:900px; height:600px;"></div>
-	<div style="width:900px;">
-    <input type="radio" checked="true" name="group" id="rb1" onclick="setType()"> candlestick
-		<input type="radio" name="group" id="rb2" onclick="setType()"> ohlc
-		<div style="float:right"><input onChange="changeZoomDates()" style="width:100px; text-align:center" type="text" id="startDate"> - <input onChange="changeZoomDates()" style="width:100px; text-align:center" type="text" id="endDate">
-	</div>
-</body>
+<div id="company_code"><%= @startCompany.abbreviation %></div>
+<div id="chartdiv"></div>
+<div id="chart_options">
+  <input type="radio" checked="true" name="group" id="rb1" onclick="setType()"> candlestick
+  <input type="radio" name="group" id="rb2" onclick="setType()"> ohlc
+  <div id="chart_data_options">
+    <select id="company" onchange="getSelectedData()">
+      <% @companies.each do |company| %>
+        <% if company == @startCompany %>
+          <option value="<%= company.abbreviation %>" selected="selected"><%= company.name %></option>
+        <% else %>
+          <option value="<%= company.abbreviation %>"><%= company.name %></option>
+        <% end %>
+      <% end %>
+    </select>&nbsp &nbsp &nbsp
+    <input class="chart_date_input" onChange="changeZoomDates()" type="text" id="startDate"> to 
+    <input class="chart_date_input" onChange="changeZoomDates()" type="text" id="endDate">
+  </div>
+</div>

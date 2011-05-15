@@ -1,19 +1,35 @@
-<%= link_to "Add new company", new_company_path, :class => "button round" %>
+<div id="add_company_button"><%= link_to "Add new company", new_company_path, :class => "button round" %></div>
 
 <table>
   <tr>
+    <th class="checkbox"></th>
     <th>Name</th>
     <th>Abbrev</th>
     <th>Industry</th>
     <th>Description</th>
   </tr>
   
-  <% @companies.each do |company| %>
-    <tr>
-      <td><%= link_to company.name, company %></td>
-      <td><%= company.abbreviation %></td>
-      <td><%= company.industry %></td>
-      <td><%= company.description %></td>
-    </tr>
-  <% end %>
+  <form action="makeindex.html" method="GET">
+    <input type="submit" value="Make Index" id="make_index_button" class="round" />
+    <% @companies.each do |company| %>
+      <tr>
+        <% if company.indexed %>
+          <td class="checkbox"><input type="checkbox" name="<%= company.abbreviation %>" checked="yes" /></td>
+        <% elsif company.abbreviation == ".INDEX" %>
+          <td class="checkbox"></td>
+        <% else %>
+          <td class="checkbox"><input type="checkbox" name="<%= company.abbreviation %>" /></td>
+        <% end %>
+        <td><%= link_to company.name, company %></td>
+        <td><%= company.abbreviation %></td>
+        <td><%= company.industry %></td>
+        <td><%= company.description %></td>
+        <% if company.abbreviation == ".INDEX" %>
+          <td></td>
+        <% else %>
+          <td><%= link_to "delete", company, :method => :delete, :confirm => "Are you sure?" %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </form>
 </table>
