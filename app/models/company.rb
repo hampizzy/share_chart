@@ -20,6 +20,6 @@ class Company < ActiveRecord::Base
   
   validates :name,         :presence => true
   validates :abbreviation, :presence => true,
-                           :length => { :within => 3..6 },
+                           :length => { :within => 3..10 },
                            :uniqueness => { :case_sensitive => false }
 end
