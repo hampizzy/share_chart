@@ -54,7 +54,7 @@ class CompaniesController < ApplicationController
   
   def index
     @title = "Companies"
-    @companies = Company.all
+    @companies = Company.all(:conditions => "abbreviation != '.INDEX'")
   end
 
   def show
@@ -83,11 +83,9 @@ class CompaniesController < ApplicationController
   def make_index
     @companies = Company.all(:order => :name).drop(1)
     @indexed = []
-    @index = Company.first
+    Company.find_by_abbreviation(".INDEX").destroy
+    @index = Company.create(:name => ".Index", :abbreviation => ".INDEX")
     @checked = []
-    @index.records.each do |record|
-      record.destroy
-    end
     params.each do |key,value|
       if value == "on"
         @checked.push(key)
@@ -119,12 +117,12 @@ class CompaniesController < ApplicationController
         adjClose += i_company.records[num].adjClose
         volume += i_company.records[num].volume
       end
-      index_record = Record.create(:time => record.time,
-                                   :open => (open/size),
-                                   :high => (high/size),
-                                   :low => (low/size),
-                                   :close => (close/size),
-                                   :adjClose => (adjClose/size),
+      index_record = Record.create(:time => record.time.round(2),
+                                   :open => (open/size).round(2),
+                                   :high => (high/size).round(2),
+                                   :low => (low/size).round(2),
+                                   :close => (close/size).round(2),
+                                   :adjClose => (adjClose/size).round(2),
                                    :volume => (volume/size),
                                    :company_id => @index.id)
       num += 1

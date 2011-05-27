@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
   def chart
     @companies = Company.all(:order => :name)
-    @startCompany = Company.first
+    @startCompany = Company.find_by_abbreviation(".INDEX")
     @title = "#{@startCompany.name} Shart"
   end
 end
