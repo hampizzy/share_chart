@@ -1,0 +1,21 @@
+# == Schema Information
+# Schema version: 20110528033930
+#
+# Table name: indices
+#
+#  id           :integer         not null, primary key
+#  name         :string(255)
+#  abbreviation :string(255)
+#  created_at   :datetime
+#  updated_at   :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  abbreviation: MyString
+
+two:
+  name: MyString
+  abbreviation: MyString

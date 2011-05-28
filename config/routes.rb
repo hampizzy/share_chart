@@ -5,6 +5,9 @@ ShareChart::Application.routes.draw do
   match '/getdata',     :to => 'companies#get_company_record_data'
   match '/makeindex',   :to => 'companies#make_index'
   
+  get 'indices/add_company_to_index'
+  
+  resources :indices
   resources :companies
   resources :records
   resources :date_ranges

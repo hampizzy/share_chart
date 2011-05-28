@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110513080243) do
+ActiveRecord::Schema.define(:version => 20110528033930) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -22,9 +22,23 @@ ActiveRecord::Schema.define(:version => 20110513080243) do
     t.boolean  "indexed",      :default => false
   end
 
+  create_table "companies_indices", :id => false, :force => true do |t|
+    t.integer  "company_id", :null => false
+    t.integer  "index_id",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "date_ranges", :force => true do |t|
     t.datetime "start_date"
     t.datetime "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "indices", :force => true do |t|
+    t.string   "name"
+    t.string   "abbreviation"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

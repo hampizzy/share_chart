@@ -1,0 +1,20 @@
+# == Schema Information
+# Schema version: 20110528033930
+#
+# Table name: companies_indices
+#
+#  company_id :integer         not null
+#  index_id   :integer         not null
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  company_id: 1
+  index_id: 1
+
+two:
+  company_id: 1
+  index_id: 1

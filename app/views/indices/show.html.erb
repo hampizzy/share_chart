@@ -1,0 +1,25 @@
+<section>
+  <form action="add_company_to_index.html" method="GET">
+    <input type="submit" value="Add" id="make_index_button" class="round" />
+    <select name="company">
+      <option value>Select Company</option>
+      <% @companies.each do |company| %>
+          <option value="<%= company.abbreviation %>"><%= company.name %></option>
+      <% end %>
+    </select>
+  </form>
+</section>
+<section>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Abbreviation</th>
+    </tr>
+    <% @index.companies.each do |company| %>
+      <tr>
+        <td><%= company.name %></td>
+        <td><%= company.abbreviation %></td>
+      </tr>
+    <% end %>
+  </table>
+</section>

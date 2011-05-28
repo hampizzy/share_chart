@@ -109,14 +109,14 @@ class CompaniesController < ApplicationController
       close = 0
       adjClose = 0
       volume = 0
-#      @indexed.each do |i_company|
-#        open += i_company.records[num].open
-#        high += i_company.records[num].high
-#        low += i_company.records[num].low
-#        close += i_company.records[num].close
-#        adjClose += i_company.records[num].adjClose
-#        volume += i_company.records[num].volume
-#      end
+      @indexed.each do |i_company|
+        open += i_company.records[num].open
+        high += i_company.records[num].high
+        low += i_company.records[num].low
+        close += i_company.records[num].close
+        adjClose += i_company.records[num].adjClose
+        volume += i_company.records[num].volume
+      end
       index_record = Record.create(:time => record.time.round(2),
                                    :open => (open/size).round(2),
                                    :high => (high/size).round(2),
