@@ -102,21 +102,21 @@ class CompaniesController < ApplicationController
     end
     size = @indexed.size
     num = 0
-#    @indexed[0].records.each do |record|
-#      open = 0
-#      high = 0
-#      low = 0
-#      close = 0
-#      adjClose = 0
-#      volume = 0
-#      @indexed.each do |i_company|
-#        open += i_company.records[num].open
-#        high += i_company.records[num].high
-#        low += i_company.records[num].low
-#        close += i_company.records[num].close
-#        adjClose += i_company.records[num].adjClose
-#        volume += i_company.records[num].volume
-#      end
+    @indexed[0].records.each do |record|
+      open = 0
+      high = 0
+      low = 0
+      close = 0
+      adjClose = 0
+      volume = 0
+      @indexed.each do |i_company|
+        open += i_company.records[num].open
+        high += i_company.records[num].high
+        low += i_company.records[num].low
+        close += i_company.records[num].close
+        adjClose += i_company.records[num].adjClose
+        volume += i_company.records[num].volume
+      end
 #      index_record = Record.create(:time => record.time.round(2),
 #                                   :open => (open/size).round(2),
 #                                   :high => (high/size).round(2),
@@ -125,8 +125,8 @@ class CompaniesController < ApplicationController
 #                                   :adjClose => (adjClose/size).round(2),
 #                                   :volume => (volume/size),
 #                                   :company_id => @index.id)
-#      num += 1
-#    end
+      num += 1
+    end
     redirect_to companies_path
   end
 end
