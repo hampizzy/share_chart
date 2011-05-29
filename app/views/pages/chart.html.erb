@@ -1,18 +1,21 @@
 <%= javascript_include_tag 'candle_chart.js' %>
 
-<div id="company_code"><%= @startCompany.abbreviation %></div>
+<div id="code"></div>
 <div id="chartdiv"></div>
 <div id="chart_options">
   <input type="radio" checked="true" name="group" id="rb1" onclick="setType()"> candlestick
   <input type="radio" name="group" id="rb2" onclick="setType()"> ohlc
   <div id="chart_data_options">
-    <select id="company" onchange="getSelectedData()">
+    <select id="index" onchange="getIndexData()">
+      <option value="none" disabled="disabled">Select index</option>
+      <% @indices.each do |index| %>
+        <option value="<%= index.abbreviation %>"><%= index.name %></option>
+      <% end %>
+    </select>&nbsp &nbsp &nbsp
+    <select id="company" onchange="getCompanyData()">
+      <option value="none" disabled="disabled">Select company</option>
       <% @companies.each do |company| %>
-        <% if company == @startCompany %>
-          <option value="<%= company.abbreviation %>" selected="selected"><%= company.name %></option>
-        <% else %>
-          <option value="<%= company.abbreviation %>"><%= company.name %></option>
-        <% end %>
+        <option value="<%= company.abbreviation %>"><%= company.name %></option>
       <% end %>
     </select>&nbsp &nbsp &nbsp
     <input class="chart_date_input" onChange="changeZoomDates()" type="text" id="startDate"> to 

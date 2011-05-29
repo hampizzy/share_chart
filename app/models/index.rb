@@ -13,6 +13,7 @@
 class Index < ActiveRecord::Base
   attr_accessible :name, :abbreviation
   
+  has_many :index_records
   has_and_belongs_to_many :companies
   
   validates :name,         :presence => true

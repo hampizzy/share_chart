@@ -2,10 +2,13 @@ ShareChart::Application.routes.draw do
 
   root                  :to => 'pages#home'
   match '/chart',       :to => 'pages#chart'
-  match '/getdata',     :to => 'companies#get_company_record_data'
   match '/makeindex',   :to => 'companies#make_index'
   
   get 'indices/add_company_to_index'
+  get 'indices/remove_company_from_index'
+  
+  get 'companies/get_company_record_data'
+  get 'indices/get_index_record_data'
   
   resources :indices
   resources :companies

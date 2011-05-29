@@ -1,0 +1,39 @@
+# == Schema Information
+# Schema version: 20110529032435
+#
+# Table name: index_records
+#
+#  id         :integer         not null, primary key
+#  time       :datetime
+#  open       :float
+#  high       :float
+#  low        :float
+#  close      :float
+#  adjClose   :float
+#  volume     :integer
+#  index_id   :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  time: 2011-05-29 13:47:34
+  open: 1.5
+  high: 1.5
+  low: 1.5
+  close: 1.5
+  adjClose: 1.5
+  volume: 1
+  index_id: 1
+
+two:
+  time: 2011-05-29 13:47:34
+  open: 1.5
+  high: 1.5
+  low: 1.5
+  close: 1.5
+  adjClose: 1.5
+  volume: 1
+  index_id: 1

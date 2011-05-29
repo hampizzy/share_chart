@@ -10,11 +10,10 @@
 #  created_at   :datetime
 #  updated_at   :datetime
 #  abbreviation :string(255)
-#  indexed      :boolean
 #
 
 class Company < ActiveRecord::Base
-  attr_accessible :name, :description, :industry, :abbreviation, :indexed
+  attr_accessible :name, :description, :industry, :abbreviation
 
   has_many :records
   has_and_belongs_to_many :indices

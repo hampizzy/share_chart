@@ -16,8 +16,6 @@ window.onload = function() {
 
  	chart = new AmCharts.AmSerialChart();
  	chart.pathToImages = "javascripts/amcharts/javascript/images/";
- 	var startCompany = document.getElementById("company_code").innerHTML;
-  getCompanyData(startCompany);
 
   chart.plotAreaBorderColor = "#000000";
   chart.plotAreaBorderAlpha = 1;
@@ -137,26 +135,26 @@ function handleZoom(event){
   document.getElementById("endDate").value = AmCharts.formatDate(endDate, "DD/MM/YYYY");
 }
 
-function getSelectedData() {
-  var company = document.getElementById("company");
-  var companyName = company.options[company.selectedIndex].innerHTML;
-  var companyCode = company.options[company.selectedIndex].value;
-  document.getElementById("title").innerHTML = "Shart | " + companyName;
-  document.getElementById("heading").innerHTML = companyName;
-  document.getElementById("company_code").innerHTML = companyCode;
-  getCompanyData(companyCode);
+function getIndexData() {
+  document.getElementById("company").value = "none";
+  getSecurityData("index", "indices/get_index_record_data.html");
 }
 
-function getCompanyData(companyCode) {
+function getCompanyData() {
+  document.getElementById("index").value = "none";
+  getSecurityData("company", "companies/get_company_record_data.html");
+}
+
+function getSecurityData(type, url) {
+  var sec = document.getElementById(type);
+  var secName = sec.options[sec.selectedIndex].innerHTML;
+  var secCode = sec.options[sec.selectedIndex].value;
+  document.getElementById("title").innerHTML = "Shart | " + secName;
+  document.getElementById("heading").innerHTML = secName;
+  document.getElementById("code").innerHTML = secCode;
+  
   chartData = [];
-  requestData(companyCode);
-  dataString = dataString.substring(0,dataString.length - 1);  // Remove trailing newline
-  parseData();
-  chart.dataProvider = chartData;
-  chart.validateData();
-}
-
-function requestData(companyCode) {
+  
   var xmlhttp;
   if (window.XMLHttpRequest) {
     xmlhttp = new XMLHttpRequest();
@@ -164,9 +162,14 @@ function requestData(companyCode) {
   else {
     xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
   }
-  xmlhttp.open("GET","getdata.html?q="+companyCode,false);
+  xmlhttp.open("GET", url+"?q="+secCode,false);
   xmlhttp.send();
   dataString = xmlhttp.responseText;
+  
+  dataString = dataString.substring(0,dataString.length - 1);  // Remove trailing newline
+  parseData();
+  chart.dataProvider = chartData;
+  chart.validateData();
 }
 
 function changeZoomDates(){
